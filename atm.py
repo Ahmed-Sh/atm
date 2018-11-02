@@ -15,7 +15,7 @@ class Atm:
                 print("give ", str(note))
 
         while request < 5 and request > 0:
-            print("give " + str(request))
+            print("give ", str(request))
             request -= request
             break
 
