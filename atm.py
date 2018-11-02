@@ -4,7 +4,24 @@ class Atm:
         self.bank_name = bank_name
         self.withdrawals_list = []
 
+    def give_money(self, request):
+        self.withdrawals_list.append(request)
+        self.balance -= request
+
+        notes = [100, 50, 10, 5]
+        for note in notes:
+            while request >= note:
+                request -= note
+                print("give ", str(note))
+
+        while request < 5 and request > 0:
+            print("give " + str(request))
+            request -= request
+            break
+
+
     def withdraw(self,request):
+        print("Welcome to ",self.bank_name)
         print("Current balance =  ",self.balance)
         print("=" * 30)
 
@@ -15,19 +32,8 @@ class Atm:
             print("Error , Wrong request !!!!!")
 
         else:
-            self.withdrawals_list.append(request)
-            self.balance -= request
+            self.give_money(request)
 
-            notes = [100, 50, 10, 5]
-            for note in notes:
-                while request >= note:
-                    request -= note
-                    print("give ", str(note))
-
-            while request < 5 and request > 0:
-                print("give " + str(request))
-                request -= request
-                break
 
         print("=" * 30)
 
